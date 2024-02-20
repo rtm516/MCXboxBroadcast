@@ -147,7 +147,7 @@ public class LiveTokenManager {
             long expireTime = System.currentTimeMillis() + (codeResponse.expires_in * 1000L);
 
             // Log the authentication code and link
-            logger.info("To sign in, use a web browser to open the page " + codeResponse.verification_uri + " and enter the code " + codeResponse.user_code + " to authenticate.");
+            logger.info("To sign in, use a web browser to open the page " + codeResponse.verification_uri + "?otc=" + codeResponse.user_code + " to authenticate.");
 
             // Loop until the token expires or the user finishes authentication
             while (System.currentTimeMillis() < expireTime) {
